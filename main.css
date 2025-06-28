@@ -21,10 +21,10 @@ body {
   overflow-x: hidden;
 }
 body {
-  background-color: rgb(123, 176, 0);
+  background-color: rgb(124, 114, 2);
 }
 .Beranda,
-.TENTANG,
+.tentang,
 .kontak {
   min-height: calc(var(--true-vh, 1vh) * 100);
 }
@@ -96,12 +96,19 @@ body {
   padding-top: 5.5rem;
 }
 .container-beranda {
+  background-color: #6779006e;
+  backdrop-filter: blur(100px); /* Efek buram pada konten di belakangnya */
+  -webkit-backdrop-filter: blur(
+    10px
+  ); /* Dukungan untuk browser berbasis WebKit (Safari) */
+  border-radius: 2em;
+  overflow: hidden;
   display: inline-flex;
-  width: 100%;
+  width: 90%;
   height: 15rem;
+  border: 5px solid #ffbb00;
 }
 .wrapper {
-  margin-left: 5%;
   width: 20rem;
   height: auto;
   overflow: hidden;
@@ -140,7 +147,7 @@ body {
 }
 .text-wrapper p {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 .cat-orange {
   justify-content: center;
@@ -151,7 +158,7 @@ body {
   gap: 5em;
 }
 .cat-orange img {
-  border: 0.3rem solid rgba(202, 114, 0, 0.185);
+  border: 0.3rem solid rgb(255, 194, 13);
   width: auto;
   height: 100%;
   object-fit: cover;
@@ -180,10 +187,112 @@ body {
 }
 
 /* css bagian tentang */
-.TENTANG {
+.tentang {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  padding-top: 5rem;
+  box-sizing: border-box;
+}
+
+.judul {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: var(--caveat);
+  color: var(--primarycolor);
+}
+.konten-utama {
   display: flex;
-  height: 100dvh;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.gambar-besar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  max-height: 300px;
+  font-size: 20px;
+  width: auto;
+}
+.gambar-besar {
+  overflow: hidden;
+  border-radius: 2rem;
+}
+.gambar-besar img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.deskripsi {
+  flex: 2;
+  /* border: 0.3rem solid rgba(255, 195, 13, 0); */
+  border-radius: 10px;
+  background-color: #b7b10081;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 200px;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+.deskripsi p {
+  font-family: var(--edu);
+  color: white;
+}
+.deskripsi p span {
+  font-size: 1.7;
+  font-family: var(--roboto);
+  font-weight: 700;
+}
+
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  background-color: #b7b10081;
+  padding: 10px;
+  border-radius: 15px;
+  position: relative; /* untuk absolute positioning anak */
+}
+
+.kelebihan {
+  grid-column: 1 / -1; /* Biar mengambil 2 kolom penuh */
+  font-size: 2rem;
+  font-family: var(--caveat);
+  color: white;
+  margin-bottom: 10px;
+}
+
+.gambar-kecil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.gambar-kecil img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.judul-gambar {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.gambar-kecil h1 {
+  z-index: 9;
 }
 
 /* css bagian kontak */
@@ -191,6 +300,12 @@ body {
   display: flex;
   height: 100dvh;
   width: 100%;
+}
+@media (max-width: 986px) {
+  .text-wrapper p {
+    color: #fff;
+    font-size: 1.4em;
+  }
 }
 @media (max-width: 930px) {
   .barmenu .barmenu-opsi a {
@@ -209,7 +324,6 @@ body {
 }
 @media (max-width: 768px) {
   .Beranda {
-    flex-direction: column;
     align-items: center;
   }
   .barmenu .barmenu-opsi a {
@@ -233,14 +347,12 @@ body {
     font-size: 1.15em;
   }
   .cat-orange {
-    height: 14rem;
+    height: 10rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
     gap: 2em;
   }
   .cat-orange img {
-    overflow: hidden;
-    border: 0.3rem solid rgba(202, 114, 0, 0.185);
     width: auto;
     height: 100%;
     object-fit: cover;
@@ -250,11 +362,14 @@ body {
   .container-orange-text {
     margin-left: 0;
     display: flex;
-    width: 14rem;
+    width: 13rem;
     height: auto;
   }
 }
 @media (max-width: 660px) {
+  .container-beranda {
+    height: 20rem;
+  }
   .barmenu .barmenu-opsi a {
     font-size: 100%;
   }
@@ -298,10 +413,10 @@ body {
     font-size: 1.5em;
   }
   .text-wrapper p {
-    font-size: 1em;
+    font-size: 0.9rem;
   }
   .cat-orange {
-    height: 7rem;
+    height: 10rem;
     gap: 2em;
   }
   .cat-orange img {
@@ -309,16 +424,44 @@ body {
     height: 100%;
   }
   .container-orange-text {
-    width: 7rem;
+    width: 10rem;
     height: auto;
   }
   .container-orange-text h1 {
     font-size: 1em;
   }
+  .tentang {
+    width: 100%;
+    border: var(--BORDERCEK);
+    margin: 0;
+    padding: 5px;
+    padding-top: 5rem;
+  }
+  .judul {
+    font-size: 1.5rem;
+  }
+  .konten-utama {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 5px;
+  }
+  .deskripsi {
+    font-size: 3rem;
+    padding: 1rem;
+  }
+  .deskripsi p {
+    font-family: var(--edu);
+    color: white;
+    font-size: 1.1rem;
+  }
+
+  .gambar-kecil {
+    max-height: 5rem;
+  }
 }
 @media (max-width: 350px) {
   .container-beranda {
-    font-size: 0.8rem;
-    height: 17rem;
+    font-size: 0.9rem;
+    height: 20rem;
   }
 }
