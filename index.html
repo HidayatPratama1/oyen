@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <!-- import google font -->
+    <style></style>
+
+    <!-- import css -->
+    <link rel="stylesheet" href="main.css" />
+
+    <title>Moon store</title>
+  </head>
+
+  <body>
+    <!-- Header menu -->
+    <nav class="barmenu">
+      <a href="">
+        <img src="images/icon/cat.png" alt="" class="image-icon" />
+      </a>
+
+      <div class="barmenu-opsi">
+        <a class="button" href="#rumah">BERANDA</a>
+        <a class="button" href="#tentang">TENTANG</a>
+        <a class="button" href="#kontak">KONTAK</a>
+      </div>
+    </nav>
+    <!-- Header menu -->
+
+    <main class="main">
+      <section class="Beranda" id="rumah">
+        <div class="container-beranda">
+          <div class="wrapper">
+            <div class="skew-container">
+              <img src="images/images/kucing oren.jpg" alt="King Of oyen" />
+            </div>
+          </div>
+          <div class="text-wrapper">
+            <h1>ORANGE CAT</h1>
+            <p>
+              Kucing oren, sering disebut "oyen," memiliki bulu jingga cerah
+              yang khas. Mereka dikenal sangat ramah, berani, dan sering
+              berperilaku unik yang menggemaskan, seperti suka mencari
+              perhatian.
+            </p>
+          </div>
+        </div>
+        <div class="cat-orange">
+          <img
+            class="image-cat-orange"
+            src="images/images/kursi.jpg"
+            alt="Kucing oren"
+          />
+          <img src="images/images/images.jpg" alt="" />
+        </div>
+
+        <div class="container-orange-text">
+          <img
+            class="orange-text"
+            src="images/images/oren-bgwhite.jpg"
+            alt="orange"
+          />
+          <h1>Oyen</h1>
+        </div>
+      </section>
+
+      <section class="TENTANG" id="tentang">
+        <div class="tentang-container">
+          <div class="tentnag-"></div>
+        </div>
+      </section>
+
+      <section class="kontak" id="kontak"></section>
+    </main>
+
+    <script>
+      // agar jika scroll di browser ponsel tidak merubah height
+      function setTrueVh() {
+        let vh = (window.visualViewport?.height || window.innerHeight) * 0.01;
+        document.documentElement.style.setProperty("--true-vh", `${vh}px`);
+      }
+
+      // Jalankan saat load & resize
+      window.addEventListener("load", setTrueVh);
+      window.addEventListener("resize", setTrueVh);
+      window.addEventListener("orientationchange", setTrueVh);
+
+      // Jalankan juga saat scroll agar address bar menghilang pun ikut dihitung
+      window.visualViewport?.addEventListener("resize", setTrueVh);
+    </script>
+  </body>
+</html>
