@@ -165,7 +165,7 @@ body {
   border-radius: 50%;
 }
 .cat-orange img:hover {
-  transform: translateY(-1.5rem);
+  transform: translateY(-1rem);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 196, 0, 0.6);
 }
 .container-orange-text {
@@ -201,7 +201,7 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
   font-family: var(--caveat);
-  color: var(--primarycolor);
+  color: white;
 }
 .konten-utama {
   display: flex;
@@ -297,9 +297,135 @@ body {
 
 /* css bagian kontak */
 .kontak {
+  flex-direction: column;
+  display: flex;
   display: flex;
   height: 100dvh;
   width: 100%;
+  justify-content: center;
+  align-items: center;
+  row-gap: 3rem;
+}
+.container_kontak {
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  display: flex;
+  width: 50%;
+  border: 0.2rem solid #ffff;
+  border-radius: 10px;
+  background-color: #2c442d; /* Warna abu-abu keunguan seperti di gambar */
+  padding: 3rem;
+  gap: 1rem;
+}
+.kontak-h1 {
+  width: 200%;
+  color: white;
+}
+.iconsosmed {
+  width: 2rem;
+}
+.iconsosmed img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.1s ease-in-out;
+}
+.iconsosmed img:hover {
+  transform: translateY(-5px);
+}
+.iconsosmed:active img {
+  transform: scale(0.9); /* Mengecil menjadi 95% saat ditekan */
+  opacity: 1; /* Kembali ke opasitas penuh */
+}
+.contract-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px; /* Jarak antara teks "Contracts" dan kotak alamat */
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #0f0f1b; /* Warna latar sedikit lebih terang dari body */
+}
+
+.contract-label {
+  font-family: "Manrope", sans-serif;
+  color: #e0e0e0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.address-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #2c2c44; /* Warna abu-abu keunguan seperti di gambar */
+  padding: 8px 12px;
+  border-radius: 20px; /* Membuat sudut sangat tumpul (pill shape) */
+  gap: 8px; /* Jarak antar item di dalam kotak (icon, teks, tombol) */
+  border: 1px solid #4a4a68;
+  position: relative; /* Diperlukan untuk tooltip */
+}
+
+.address-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.address-text {
+  color: #f0f0f0;
+  font-size: 16px;
+  font-weight: 500;
+  /* Kita gunakan JS untuk memotong teks, bukan CSS text-overflow */
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-button svg {
+  width: 18px;
+  height: 18px;
+  fill: #a9a9b3; /* Warna ikon copy */
+  transition: fill 0.2s ease;
+}
+
+.copy-button:hover svg {
+  fill: #ffffff; /* Warna ikon saat disentuh kursor */
+}
+
+/* Tooltip untuk feedback "Copied!" */
+.copy-tooltip {
+  position: absolute;
+  background-color: #000000;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  top: -35px; /* Posisikan di atas tombol */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  white-space: nowrap;
+}
+
+.copy-tooltip.show {
+  opacity: 1;
+  visibility: visible;
+}
+.text-thanks {
+  font-size: small;
+  color: white;
+  text-align: center;
+  border-bottom: 1px solid #ffffff80;
+  padding-bottom: 5px;
 }
 @media (max-width: 986px) {
   .text-wrapper p {
@@ -432,7 +558,6 @@ body {
   }
   .tentang {
     width: 100%;
-    border: var(--BORDERCEK);
     margin: 0;
     padding: 5px;
     padding-top: 5rem;
@@ -454,14 +579,20 @@ body {
     color: white;
     font-size: 1.1rem;
   }
-
-  .gambar-kecil {
-    max-height: 5rem;
+  .container_kontak {
+    padding: 1rem;
   }
 }
 @media (max-width: 350px) {
+  html,
+  body {
+    font-size: 70%;
+  }
   .container-beranda {
     font-size: 0.9rem;
     height: 20rem;
+  }
+  .barmenu .barmenu-opsi a {
+    font-size: 180%;
   }
 }

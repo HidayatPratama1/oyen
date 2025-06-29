@@ -108,7 +108,104 @@
         </div>
       </section>
 
-      <section class="kontak" id="kontak"></section>
+      <section class="kontak" id="kontak">
+        <div class="container_kontak">
+          <h1 class="kontak-h1">Sosial Media</h1>
+
+          <div class="iconsosmed">
+            <a href="" target="_blank" rel="noopener noreferrer"
+              ><img src="images/icon/wa.png" alt=""
+            /></a>
+          </div>
+          <div class="iconsosmed">
+            <a href="" target="_blank" rel="noopener noreferrer"
+              ><img src="images/icon/ig.png" alt=""
+            /></a>
+          </div>
+          <div class="iconsosmed">
+            <a href="" target="_blank" rel="noopener noreferrer"
+              ><img src="images/icon/fb.png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <div class="contract-container">
+          <p class="contract-label">Contracts</p>
+
+          <div class="address-wrapper">
+            <img
+              src="images/icon/btc.png"
+              alt="Chain Icon"
+              class="address-icon"
+            />
+
+            <span
+              class="address-text"
+              data-full-address="bc1qlmfya0m2m0esqxgzlyv9vdfj0ddyma700vyprw"
+            >
+            </span>
+
+            <button class="copy-button" title="Copy address">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                />
+              </svg>
+            </button>
+            <div class="copy-tooltip">Copied!</div>
+          </div>
+
+          <div class="address-wrapper">
+            <img
+              src="images/icon/solana.png"
+              alt="Chain Icon"
+              class="address-icon"
+            />
+
+            <span
+              class="address-text"
+              data-full-address="Ena7z8sioovVZZ4PS2g3X882TNMLvho5BKHfgJvrUd6y"
+            >
+            </span>
+
+            <button class="copy-button" title="Copy address">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                />
+              </svg>
+            </button>
+            <div class="copy-tooltip">Copied!</div>
+          </div>
+
+          <div class="address-wrapper">
+            <img
+              src="images/icon/eth.png"
+              alt="Chain Icon"
+              class="address-icon"
+            />
+
+            <span
+              class="address-text"
+              data-full-address="0xA200755eC3Cb92c37d56640C21374f2B07818389"
+            >
+            </span>
+
+            <button class="copy-button" title="Copy address">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                />
+              </svg>
+            </button>
+            <div class="copy-tooltip">Copied!</div>
+          </div>
+        </div>
+        <p class="text-thanks">
+          TERIMAKASIH <br />
+          Donasi teman teman disini sangat berguna untuk saya
+        </p>
+      </section>
     </main>
 
     <script>
@@ -125,6 +222,47 @@
 
       // Jalankan juga saat scroll agar address bar menghilang pun ikut dihitung
       window.visualViewport?.addEventListener("resize", setTrueVh);
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const addressSpans = document.querySelectorAll(".address-text");
+        const copyButtons = document.querySelectorAll(".copy-button");
+        const tooltips = document.querySelectorAll(".copy-tooltip");
+
+        // 1. Potong dan tampilkan semua alamat
+        addressSpans.forEach((span) => {
+          const fullAddress = span.getAttribute("data-full-address");
+          span.textContent = truncateAddress(fullAddress);
+        });
+
+        // 2. Tambahkan event click untuk semua tombol copy
+        copyButtons.forEach((button, index) => {
+          button.addEventListener("click", function () {
+            const address =
+              addressSpans[index].getAttribute("data-full-address");
+            const tooltip = tooltips[index];
+
+            navigator.clipboard
+              .writeText(address)
+              .then(() => {
+                tooltip.classList.add("show");
+                setTimeout(() => {
+                  tooltip.classList.remove("show");
+                }, 2000);
+              })
+              .catch((err) => {
+                console.error("Gagal menyalin alamat:", err);
+                alert("Gagal menyalin alamat.");
+              });
+          });
+        });
+
+        function truncateAddress(address) {
+          if (address.length <= 12) return address;
+          const start = address.substring(0, 6);
+          const end = address.substring(address.length - 6);
+          return `${start}...${end}`;
+        }
+      });
     </script>
   </body>
 </html>
